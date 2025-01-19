@@ -1,0 +1,14 @@
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: lightgrey;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.matched {
+    background-color: lightgreen;
+}

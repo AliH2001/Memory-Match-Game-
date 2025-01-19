@@ -1,0 +1,62 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <title>Memory Match</title>
+</head>
+<body>
+    <h1>Memory Match</h1>
+    <div id="msgArea"  class="msg"><p class="magText"></p> </div>
+    
+    <div class="game">
+           <div class="controls">
+                  <button id="btn" class="">Start</button>
+                  <div class="stats">
+                       <div class="moves"> 0 moves</div>
+                       <div class="timer">time: 0 sec</div>     
+                 </div>
+          </div>
+          <div class="board-container">
+                 <div class="board" data-dimension="4"></div>
+                 <div class="win">You won!</div>
+
+          </div>
+     </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel=" stylesheet" type="text/css" href="styles.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mt-4">
+            <h1>Memory Card Game</h1>
+            <div class="mb-2">
+                <button class="btn btn-primary" id="startBtn">Start Game</button>
+                <button class="btn btn-info" id="rulesBtn">Game Rules</button>
+                <button class="btn btn-warning" id="tryAgainBtn" style="display: none;">Try Again</button>
+            </div>
+            <div class="mb-2">
+                <span>Time left: <span id="timer">60</span> seconds</span>
+                <span class="ml-4">Moves: <span id="moveCounter">0</span></span>
+            </div>
+            <div id="gameBoard" class="d-flex flex-wrap justify-content-center">
+                <!-- Cards will go here -->
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
