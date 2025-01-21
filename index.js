@@ -1,92 +1,138 @@
-// Constants
-const cards = ['🥭', '🥭', '🍒', '🍒', '🥑', '🥑', '🌽', '🌽', '🥕', '🥕', '🍇', '🍇'];  
-// Variables
-let timer;
-let selectedCards = [];
-let matchedCards = [];
-let isTimerRunning = false;
+/*------------------------------------------------------------------------ Constants -------------------------------------------------------------*/
 
-// Cached Element References
+/*------------------------------------------------------------------------ Variables --------------------------------------------------------------*/
+let first = null;
+let second = null;
+let timer = null;
+let timeRemaining = 60;
+let isChecking = false; 
+let timerStarted = false;
+
+/*--------------------------------------------------------- Cached Element References -------------------------------------------------------*/
+const cards = document.querySelectorAll('.card');
+const cardContainer = document.getElementById('cardContainer');
 const timerDisplay = document.getElementById('timer');
-const gameBoard = document.getElementById('gameBoard');
 const messageDisplay = document.getElementById('message');
+const restartButton = document.getElementById('restart');
 
-// Shuffles the cards
-const shuffleCards = () => {
-    return cards.sort(() => 0.5 - Math.random());
-  };
+/*------------------------------------------------------------------ Functions --------------------------------------------------------------------*/
+
+
+const shufflecards = () => {
+  cards.forEach((card) => {
+    const randomNum = Math.floor(Math.random() * cards.length);
+    card.style.order = randomNum;
+  });
+};
+
+const GLM = () => {
+  messageDisplay.textContent = 'Good Luck! 🍀';
+  messageDisplay.style.color = 'green';
+};
+
+
+const startTimer = () => {
+  timer = setInterval(() => {
+    timeRemaining--;
+    timerDisplay.textContent = `Time Left: ${timeRemaining}s`;
+    if (timeRemaining <= 0) {
+      clearInterval(timer);
+      messageDisplay.textContent = 'Time is up 😢 You lose ☹️';
+      messageDisplay.style.color = 'red';
+      cards.forEach(card => card.style.pointerEvents = 'none');
+    }
+  }, 1000);
+};
+
+
+const restartGame = () => {
+  clearInterval(timer); 
+  timeRemaining = 60; 
+  timerDisplay.textContent = `Time Left: 60s`; 
+  messageDisplay.textContent = ''; 
+  cards.forEach(card => card.style.pointerEvents = 'auto'); 
+  first = null; 
+  second = null;
+
+
+  cards.forEach((card) => {
+    card.classList.remove('show', 'matched');
+    card.textContent = '';
+    card.style.pointerEvents = 'auto'; 
+  });
+  shufflecards(); 
+  timerStarted = false;
+  GLM();
+};
+
+const checkMatch = () => {
+  if (first.getAttribute('data-value') === second.getAttribute('data-value')) {
+    setTimeout(() => {
+      first.classList.add('matched');
+      second.classList.add('matched');
+      first.style.pointerEvents = 'none'; 
+      second.style.pointerEvents = 'none';
+      first = null;
+      second = null;
+      isChecking = false; 
+
   
-// Creates the game board
-  const createBoard = () => {
-    const shuffledCards = shuffleCards();
-    shuffledCards.forEach((symbol) => {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.dataset.symbol = symbol;
-      gameBoard.appendChild(card);
-    });
-  };
-  
-  // Starts the game
-  const startGame = () => {
-    selectedCards = [];
-    matchedCards = [];
-    isTimerRunning = false;
-    gameBoard.innerHTML = '';
-    messageDisplay.textContent = '';
-    timerDisplay.textContent = 'Timer: 60s';
-    createBoard();
-  };
-  
-  // Starts the timer
-  const startTimer = () => {
-    let timeRemaining = 60;
-    timer = setInterval(() => {
-      timeRemaining--;
-      timerDisplay.textContent = `Timer: ${timeRemaining}s`;
-      if (timeRemaining <= 0) {
+      if (Array.from(cards).every(card => card.classList.contains('matched'))) {
         clearInterval(timer);
-        messageDisplay.textContent = 'Time up! You lose!';
+        messageDisplay.textContent = 'Congratulations, You win 😊';
       }
+    }, 500);
+  } else {
+    
+    setTimeout(() => {
+      first.classList.remove('show');
+      second.classList.remove('show');
+      first.textContent = '';
+      second.textContent = '';
+      first = null;
+      second = null;
+      isChecking = false; 
     }, 1000);
-  };
-  
-  // Checks for a match
-  const checkMatch = (clickedCard) => {
-    selectedCards.push(clickedCard);
-    if (selectedCards.length === 2) {
-      if (selectedCards[0].dataset.symbol === selectedCards[1].dataset.symbol) {
-        matchedCards.push(...selectedCards);
-        selectedCards = [];
-        if (matchedCards.length === cards.length) {
-          clearInterval(timer);
-          messageDisplay.textContent = 'Congratulations! You win!';
-        }
-      } else {
-        setTimeout(() => {
-          selectedCards.forEach(card => card.textContent = '');
-          selectedCards = [];
-        }, 500);
-      }
+  }
+};
+
+/*------------------------------------------------------------------------ Event Listeners -----------------------------------------------------------*/
+
+const handlecardClick = (event) => {
+  const card = event.target;
+
+  if (isChecking || card.classList.contains('show') || card.classList.contains('matched') || card === first) {
+    return;
+  }
+  card.classList.add('show');
+  card.textContent = card.getAttribute('data-value');
+
+  if (!first) {
+    first = card;
+  } else {
+    second = card;
+    isChecking = true;
+    checkMatch();
+  }
+};
+
+
+cards.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    if (!timerStarted) {
+      startTimer(); 
+      timerStarted = true; 
+      GLM(); 
     }
-  };
-  // Handles card click events
-  const handleCardClick = (event) => {
-    const clickedCard = event.target;
-    if (clickedCard.classList.contains('card') && clickedCard.textContent === '') {
-      if (!isTimerRunning) {
-        isTimerRunning = true;
-        startTimer();
-      }
-      clickedCard.textContent = clickedCard.dataset.symbol;
-      checkMatch(clickedCard);
-    }
-  };
+    handlecardClick(event);
+  });
+});
 
-  // Event Listeners
-gameBoard.addEventListener('click', handleCardClick);
 
-// Initialize the game on DOM load
-document.addEventListener('DOMContentLoaded', startGame);
+restartButton.addEventListener('click', restartGame);
 
-      
+/*-------------------------------------------------------------------- Initialization -------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+  GLM(); 
+  shufflecards();
+});

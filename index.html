@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Card Game</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel=" stylesheet" type="text/css" href="styles.css">
-  <script defer src="index.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1 class="text-center">Memory Card Game</h1>
-    <div id="timer" class="text-center">Timer: 60s</div>
-    <div id="message" class="text-center mt-3"></div>
-    <div id="gameBoard" class="mt-3"></div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="index.js"></script>
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <header>
+      <h1>🎮 Memory Match Game 🎮</h1>
+      <div id="timer">Time Left: 60s</div>
+    </header>
+    <div id="container">
+      <div id="instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Click on a card to start the game.</li>
+          <li>You have 60 seconds to match all pairs.</li>
+          <li>Click on a card to flip it over.</li>
+          <li>Match pairs of cards with the same symbols.</li>
+          <li>Click on a card to reveal its symbol.</li>
+        </ol>
+      </div>
+      <main id="cardContainer">
+        <div class="card" data-value="🥭"></div>
+        <div class="card" data-value="🥭"></div>
+        <div class="card" data-value="🍊"></div>
+        <div class="card" data-value="🍊"></div>
+        <div class="card" data-value="🥑"></div>
+        <div class="card" data-value="🥑"></div>
+        <div class="card" data-value="🍇"></div>
+        <div class="card" data-value="🍇"></div>
+        <div class="card" data-value="🍍"></div>
+        <div class="card" data-value="🍍"></div>
+        <div class="card" data-value="🍎"></div>
+        <div class="card" data-value="🍎"></div>
+      </main>
+      
+      <div id="mbox">
+        <h2 id="message">Good Luck!</h2>
+      </div>
+    </div>
+    <footer>
+      <button id="restart">Restart</button>
+    </footer>
+  </body>
 </html>
+!
