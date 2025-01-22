@@ -35,21 +35,21 @@ button#restart {
 
 
 #instructions {
-  width: 25%;
+  width: 300px;
+  height: 300px;
   text-align: left;
   padding: 20px;
   background-color: #f0f0f0;
-  border-radius: 8px;
-  margin-right: 20px; /* Add space between the left section and game board */
+  /* border-radius: 8px; */
+  margin-right: 20px; 
 }
 
 #instructions h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 25px;
 }
 
 #instructions ol {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 
@@ -70,6 +70,7 @@ main#cardContainer {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  
   /* cursor: pointer; */
   /* transition: background-color 0.3s ease; */
 }
@@ -81,9 +82,12 @@ main#cardContainer {
 .card.matched {
   background-color: green;
   color: white;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
+/* .hidden{
+  display: none;
+} */
 
 
 #mbox {
@@ -94,20 +98,19 @@ main#cardContainer {
   text-align: center;
   padding: 20px;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   margin-left: 20px; 
 }
 
 #mboxh2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font: size 30px;;
   text-align: center; 
 }
 
 /* Footer Styling */
-footer {
+/* footer {
   margin: 20px 0;
-}
+} */
 /* 
 #message {
   font-size: 20px;

@@ -4,7 +4,7 @@
 let first = null;
 let second = null;
 let timer = null;
-let timeRemaining = 60;
+let timeRemaining = 30;
 let isChecking = false; 
 let timerStarted = false;
 
@@ -47,13 +47,12 @@ const startTimer = () => {
 
 const restartGame = () => {
   clearInterval(timer); 
-  timeRemaining = 60; 
-  timerDisplay.textContent = `Time Left: 60s`; 
+  timeRemaining = 30; 
+  timerDisplay.textContent = `Time Left: 30s`; 
   messageDisplay.textContent = ''; 
   cards.forEach(card => card.style.pointerEvents = 'auto'); 
   first = null; 
   second = null;
-
 
   cards.forEach((card) => {
     card.classList.remove('show', 'matched');
@@ -63,6 +62,7 @@ const restartGame = () => {
   shufflecards(); 
   timerStarted = false;
   goodLookMessage ();
+  
 };
 
 const checkMatch = () => {
@@ -132,7 +132,7 @@ cards.forEach((card) => {
 restartButton.addEventListener('click', restartGame);
 
 /*-------------------------------------------------------------------- Initialization -------------------------------------------------------------*/
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
   goodLookMessage (); 
   shufflecards();
-});
+};
