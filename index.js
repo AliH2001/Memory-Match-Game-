@@ -25,7 +25,7 @@ const shufflecards = () => {
   });
 };
 
-const GLM = () => {
+const goodLookMessage  = () => {
   messageDisplay.textContent = 'Good Luck! 🍀';
   messageDisplay.style.color = 'green';
 };
@@ -62,7 +62,7 @@ const restartGame = () => {
   });
   shufflecards(); 
   timerStarted = false;
-  GLM();
+  goodLookMessage ();
 };
 
 const checkMatch = () => {
@@ -122,7 +122,7 @@ cards.forEach((card) => {
     if (!timerStarted) {
       startTimer(); 
       timerStarted = true; 
-      GLM(); 
+      goodLookMessage (); 
     }
     handlecardClick(event);
   });
@@ -133,6 +133,6 @@ restartButton.addEventListener('click', restartGame);
 
 /*-------------------------------------------------------------------- Initialization -------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-  GLM(); 
+  goodLookMessage (); 
   shufflecards();
 });
