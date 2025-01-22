@@ -1,7 +1,12 @@
 # Memory Match Game
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
+ <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://freeimage.host/i/2iZkJqb">
+</picture>
 
-![Memory Match Game](https://github.com/YOUR-USERNAME/Memory-Match-Game/blob/main/memory-game-light.jpg#light)
-![Memory Match Game](https://github.com/YOUR-USERNAME/Memory-Match-Game/blob/main/memory-game-dark.jpg#dark)
+
+
 
 ## Table of Contents
 - [Description](#description)
