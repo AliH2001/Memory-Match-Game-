@@ -61,7 +61,7 @@ const restartGame = () => {
   });
   shufflecards(); 
   timerStarted = false;
-  goodLookMessage ();
+  // goodLookMessage ();
   
 };
 
@@ -114,6 +114,7 @@ const handlecardClick = (event) => {
     isChecking = true;
     checkMatch();
   }
+  goodLookMessage ();
 };
 
 
@@ -133,6 +134,7 @@ restartButton.addEventListener('click', restartGame);
 
 /*-------------------------------------------------------------------- Initialization -------------------------------------------------------------*/
 function init() {
-  goodLookMessage (); 
+  
   shufflecards();
 };
+init()
