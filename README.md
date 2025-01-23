@@ -16,7 +16,7 @@
 
 
 ## Description
-Memory Match Game is an engaging and fast-paced game where players aim to match pairs of cards within a 30-second timer. It is built using HTML, CSS, and JavaScript.
+where the player needs to match pairs of cards that contain the same symbols (e.g., fruits like mango, orange, apple, etc.). The game is timed, giving the player 30 seconds to match all the pairs.
 
 ## Features
 - Flip cards to reveal their symbols.
