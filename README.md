@@ -1,13 +1,10 @@
 # Memory Match Game
 
-<<<<<<< HEAD
 ![Memory Match Game ](Memory%20Match%20Game%201.jpg)
 ![Memory Match Game ](Memory%20Match%20Game%202.jpg)
 ![Memory Match Game ](Memory%20Match%20Game%203.jpg)
 
 
-=======
->>>>>>> c6094c1e1d2e99e7d0d812ab80dfddaa1b2eae5f
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
@@ -16,7 +13,7 @@
 - [Getting Started](#getting-started)
 - [Future Enhancements](#future-enhancements)
 
----
+
 
 ## Description
 Memory Match Game is an engaging and fast-paced game where players aim to match pairs of cards within a 30-second timer. It is built using HTML, CSS, and JavaScript.
