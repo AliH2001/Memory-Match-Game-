@@ -1,10 +1,13 @@
 # Memory Match Game
 
+<<<<<<< HEAD
 ![Memory Match Game ](Memory%20Match%20Game%201.jpg)
 ![Memory Match Game ](Memory%20Match%20Game%202.jpg)
 ![Memory Match Game ](Memory%20Match%20Game%203.jpg)
 
 
+=======
+>>>>>>> c6094c1e1d2e99e7d0d812ab80dfddaa1b2eae5f
 ## Table of Contents
 - [Description](#description)
 - [Features](#features)
@@ -58,4 +61,8 @@ You can play the game directly by visiting the deployed link:
 - Add difficulty levels (easy, medium, hard).
 - Include background music and sound effects.
 - Improve the visual design with animations.
+<<<<<<< HEAD
 - Add a leaderboard to track top scores.
+=======
+- Add a leaderboard to track top scores.
+>>>>>>> c6094c1e1d2e99e7d0d812ab80dfddaa1b2eae5f
